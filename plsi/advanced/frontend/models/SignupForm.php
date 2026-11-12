@@ -63,7 +63,29 @@ class SignupForm extends Model
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
 
-        return $user->save() && $this->sendEmail($mailer, $user, $supportEmail, $appName);
+        $transaction = Yii::$app->db->beginTransaction();
+
+        try {
+        if (!$user->save()) {
+            $transaction->rollBack();
+            return null;
+        }
+
+        // Atribuir o role por defeito a quem se regista no front-office
+        $auth = Yii::$app->authManager;
+        $role = $auth->getRole('empresa');
+        if ($role === null) {
+            throw new \RuntimeException("O role 'empresa' não existe.");
+        }
+        $auth->assign($role, $user->getId());
+
+        $transaction->commit();
+        } catch (\Throwable $e) {
+        $transaction->rollBack();
+        throw $e;
+        }
+
+        return $this->sendEmail($mailer, $user, $supportEmail, $appName);
     }
 
     /**
