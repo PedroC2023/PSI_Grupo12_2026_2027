@@ -13,6 +13,11 @@ $items = [
         'label' => 'Home',
         'url' => ['/site/index'],
     ],
+    [   // Página de gerir roles de utilizadores  <-------
+        'label' => 'Gestão de Utilizadores', 
+        'url' => ['/user/index'], 
+        'visible' => Yii::$app->user->can('gerirRoles')
+    ],
     [
         'label' => 'Login',
         'url' => ['/site/login'],
