@@ -52,10 +52,10 @@ class RbacController extends Controller
         }
 
         // ---------- ROLES ----------
-        $empresa = $auth->createRole('empresa');
-        $auth->add($empresa);
+        $cliente = $auth->createRole('cliente');
+        $auth->add($cliente);
         foreach ($own as $perm) {
-            $auth->addChild($empresa, $perm);
+            $auth->addChild($cliente, $perm);
         }
 
         $moderador = $auth->createRole('moderador');

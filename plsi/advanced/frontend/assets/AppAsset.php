@@ -1,29 +1,19 @@
 <?php
 
-/**
- * @link https://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license https://www.yiiframework.com/license/
- */
-
 declare(strict_types=1);
 
 namespace frontend\assets;
 
+use yii\bootstrap5\BootstrapPluginAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
-/**
- * Main frontend application asset bundle.
- */
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'https://googleapis.com',
-        'https://fontawesome.com',
-        'https://jsdelivr.net',
+        // Apenas ficheiros locais da pasta frontend/web/
         'lib/animate/animate.min.css',
         'lib/owlcarousel/assets/owl.carousel.min.css',
         'lib/lightbox/css/lightbox.min.css',
@@ -31,7 +21,7 @@ class AppAsset extends AssetBundle
         'css/style.css',
     ];
     public $js = [
-        'https://jsdelivr.net',
+        // Apenas scripts locais da pasta frontend/web/
         'lib/wow/wow.min.js',
         'lib/easing/easing.min.js',
         'lib/waypoints/waypoints.min.js',
@@ -41,5 +31,6 @@ class AppAsset extends AssetBundle
     ];
     public $depends = [
         YiiAsset::class,
+        BootstrapPluginAsset::class, // Carrega apenas o JS local do Bootstrap 5 (sem o CSS padrão do Yii)
     ];
 }

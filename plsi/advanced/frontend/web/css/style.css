@@ -661,4 +661,35 @@
 }
 /*** copyright end ***/
 
+.login-brand-panel {
+    background: linear-gradient(135deg, #001442 0%, #00d1f9 100%) !important;
+}
+
+.login-btn {
+    background-color: #00d1f9 !important;
+    border-color: #00d1f9 !important;
+}
+
+.login-btn:hover {
+    background-color: #001442 !important;
+    border-color: #001442 !important;
+}
+
+/* Fundo escuro para o header nas páginas sem carrossel (Login, Signup, About, Contact) */
+body.inner-page .navbar-light {
+    background-color: #001442 !important;
+    position: relative !important;
+}
+
+body.inner-page .navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+body.inner-page .navbar-light .navbar-nav .nav-link:hover,
+body.inner-page .navbar-light .navbar-nav .nav-link.active {
+    color: #00d1f9 !important;
+}
+
+
+
 

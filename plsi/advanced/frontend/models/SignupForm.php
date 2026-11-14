@@ -76,9 +76,9 @@ class SignupForm extends Model
 
         // Atribuir o role por defeito a quem se regista no front-office
         $auth = Yii::$app->authManager;
-        $role = $auth->getRole('empresa');
+        $role = $auth->getRole('cliente');
         if ($role === null) {
-            throw new \RuntimeException("O role 'empresa' não existe.");
+            throw new \RuntimeException("O role 'cliente' não existe.");
         }
         $auth->assign($role, $user->getId());
 
