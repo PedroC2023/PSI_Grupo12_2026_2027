@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace frontend\assets;
 
-use common\assets\ColorModeAsset;
-use yii\bootstrap5\BootstrapAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
@@ -23,11 +21,25 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'https://googleapis.com',
+        'https://fontawesome.com',
+        'https://jsdelivr.net',
+        'lib/animate/animate.min.css',
+        'lib/owlcarousel/assets/owl.carousel.min.css',
+        'lib/lightbox/css/lightbox.min.css',
+        'css/bootstrap.min.css',
+        'css/style.css',
+    ];
+    public $js = [
+        'https://jsdelivr.net',
+        'lib/wow/wow.min.js',
+        'lib/easing/easing.min.js',
+        'lib/waypoints/waypoints.min.js',
+        'lib/owlcarousel/owl.carousel.min.js',
+        'lib/lightbox/js/lightbox.min.js',
+        'js/main.js',
     ];
     public $depends = [
         YiiAsset::class,
-        BootstrapAsset::class,
-        ColorModeAsset::class,
     ];
 }
