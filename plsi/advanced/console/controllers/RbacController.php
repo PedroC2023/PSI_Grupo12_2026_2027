@@ -78,6 +78,11 @@ class RbacController extends Controller
         $auth->addChild($admin, $p['gerirUtilizadores']);
         $auth->addChild($admin, $p['gerirRoles']);
 
+
+        if (\common\models\User::findOne(1)) {
+            $auth->assign($admin, 1);
+            }
+
         echo "RBAC WaterTrack criado.\n";
     }
 
@@ -89,6 +94,7 @@ class RbacController extends Controller
             echo "Role '$role' não existe.\n";
             return;
         }
+        $auth->revokeAll($userId); // Remove o role 'cliente' que o utilizador tinha antes
         $auth->assign($r, $userId);
         echo "Role '$role' atribuído ao utilizador $userId.\n";
     }
