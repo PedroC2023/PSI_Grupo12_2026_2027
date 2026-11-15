@@ -9,10 +9,10 @@ declare(strict_types=1);
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = 'Create a new account';
+$this->title = 'Criar conta';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['meta_description'] = 'Create a new account to start building with Yii2.';
-$this->params['meta_keywords'] = 'yii, yii2, signup, register, create account';
+$this->params['meta_description'] = 'Crie a sua conta Watertrack para aceder à área de cliente.';
+$this->params['meta_keywords'] = 'Watertrack, criar conta, registo';
 $htmlIcon = <<<HTML
 {label}<div class="input-group"><span class="input-group-text" aria-hidden="true">%s</span>{input}</div>{error}{hint}
 HTML;
@@ -25,22 +25,13 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
             <!-- Brand panel -->
             <div class="col-md-5 d-none d-md-flex login-brand-panel text-white">
                 <div class="d-flex flex-column justify-content-between p-4 p-lg-5 w-100">
-                    <div>
-                        <?= Html::img(
-                            Yii::getAlias('@web/images/yii3_full_white_for_dark.svg'),
-                            [
-                                'alt' => 'Yii Framework',
-                                'class' => 'mb-4',
-                                'height' => 40,
-                            ],
-                        ) ?>
-                    </div>
+                    <h2 class="h3 text-white"><i class="fas fa-hand-holding-water text-primary me-2"></i>Watertrack</h2>
                     <div>
                         <h2 class="fw-bold mb-3 login-brand-title">
-                            Create Your<br>Account
+                            Crie a sua<br>conta
                         </h2>
                         <p class="opacity-75 mb-0 login-brand-text">
-                            Join us and start building amazing applications with Yii2.
+                            Registe-se para aceder à sua área de cliente.
                         </p>
                     </div>
                 </div>
@@ -50,18 +41,9 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
             <div class="col-md-7">
                 <div class="p-4 p-lg-5">
                     <div class="text-center mb-4">
-                        <div class="d-md-none mb-3">
-                            <?= Html::img(
-                                Yii::getAlias('@web/images/yii3_full_black_for_light.svg'),
-                                [
-                                    'alt' => 'Yii Framework',
-                                    'class' => 'login-mobile-logo',
-                                    'height' => 36,
-                                ],
-                            ) ?>
-                        </div>
+                        <div class="d-md-none mb-3"><span class="h4 text-primary"><i class="fas fa-hand-holding-water me-2"></i>Watertrack</span></div>
                         <h1 class="h3 fw-bold mb-1"><?= Html::encode($this->title) ?></h1>
-                        <p class="text-body-secondary small">Fill out the fields below to get started</p>
+                        <p class="text-body-secondary small">Preencha os campos para começar.</p>
                     </div>
 
                     <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
@@ -73,9 +55,9 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
                             'inputOptions' => [
                                 'autofocus' => true,
                                 'class' => 'form-control',
-                                'placeholder' => 'username',
+                                'placeholder' => 'Utilizador',
                             ],
-                        ])->textInput()->label('Your Username', $labelOptions) ?>
+                        ])->textInput()->label('Nome de utilizador', $labelOptions) ?>
                     </div>
 
                     <div class="mb-3">
@@ -84,9 +66,9 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
                             'template' => sprintf($htmlIcon, '&#9993;'),
                             'inputOptions' => [
                                 'class' => 'form-control',
-                                'placeholder' => 'email@example.com',
+                                'placeholder' => 'email@exemplo.pt',
                             ],
-                        ])->textInput()->label('Your Email', $labelOptions) ?>
+                        ])->textInput()->label('O seu e-mail', $labelOptions) ?>
                     </div>
 
                     <div class="mb-4">
@@ -95,14 +77,14 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
                             'template' => sprintf($htmlIcon, '&#128274;'),
                             'inputOptions' => [
                                 'class' => 'form-control',
-                                'placeholder' => 'Password',
+                                'placeholder' => 'Palavra-passe',
                             ],
-                        ])->passwordInput()->label('Your Password', $labelOptions) ?>
+                        ])->passwordInput()->label('Palavra-passe', $labelOptions) ?>
                     </div>
 
                     <div class="d-grid">
                         <?= Html::submitButton(
-                            'Signup',
+                            'Registar',
                             [
                                 'class' => 'btn login-btn btn-lg rounded-3 text-white',
                                 'name' => 'signup-button',
@@ -113,7 +95,7 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
                     <?php ActiveForm::end(); ?>
 
                     <div class="text-body-secondary text-center mt-3 small">
-                        Already have an account? <?= Html::a('Login', ['site/login']) ?>
+                        Já tem conta? <?= Html::a('Iniciar sessão', ['site/login']) ?>
                     </div>
 
                 </div>

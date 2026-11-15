@@ -61,7 +61,7 @@ final class SignupFormTest extends Unit
         verify($mail->getFrom())
             ->arrayHasKey(Yii::$app->params['supportEmail']);
         verify($mail->getSubject())
-            ->equals('Account registration at ' . Yii::$app->name);
+            ->equals('Confirmação da conta — ' . Yii::$app->name);
         verify($mail->toString())
             ->stringContainsString($user->verification_token);
     }
@@ -83,8 +83,8 @@ final class SignupFormTest extends Unit
         verify($model->getErrors('email'))
             ->notEmpty();
         verify($model->getFirstError('username'))
-            ->equals('This username has already been taken.');
+            ->equals('Este nome de utilizador já está a ser utilizado.');
         verify($model->getFirstError('email'))
-            ->equals('This email address has already been taken.');
+            ->equals('Este endereço de e-mail já está registado.');
     }
 }

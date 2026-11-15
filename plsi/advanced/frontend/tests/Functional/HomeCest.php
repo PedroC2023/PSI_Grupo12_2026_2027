@@ -12,9 +12,9 @@ final class HomeCest
     public function checkOpen(FunctionalTester $I): void
     {
         $I->amOnRoute(Yii::$app->homeUrl);
-        $I->see('My Application');
-        $I->seeLink('About');
-        $I->click('About');
-        $I->see('This is the About page.');
+        $I->see('Watertrack');
+        $I->seeLink('A empresa');
+        $I->click('A empresa');
+        $I->see('Ajudamos a cuidar de cada gota.');
     }
 }

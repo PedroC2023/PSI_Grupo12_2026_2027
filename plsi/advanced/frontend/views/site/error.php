@@ -10,7 +10,7 @@ declare(strict_types=1);
 use yii\helpers\Html;
 use yii\web\HttpException;
 
-$this->title = $name;
+$this->title = 'Erro';
 $statusCode = $exception instanceof HttpException ? $exception->statusCode : 500;
 ?>
 <div class="site-error d-flex align-items-center justify-content-center text-center">
@@ -20,12 +20,12 @@ $statusCode = $exception instanceof HttpException ? $exception->statusCode : 500
         <h2 class="display-6 fw-semibold mb-3"><?= Html::encode($message) ?></h2>
 
         <p class="text-body-secondary mb-4">
-            The above error occurred while the Web server was processing your request.
-            Please contact us if you think this is a server error. Thank you.
+            Ocorreu um erro ao processar o seu pedido.
+            Contacte-nos se considerar que se trata de um erro do servidor. Obrigado.
         </p>
 
         <?= Html::a(
-            'Go to Homepage',
+            'Voltar à página inicial',
             Yii::$app->homeUrl,
             ['class' => 'btn btn-outline-primary btn-lg'],
         ) ?>

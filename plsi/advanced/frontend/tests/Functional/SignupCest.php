@@ -17,12 +17,12 @@ final class SignupCest
 
     public function signupWithEmptyFields(FunctionalTester $I): void
     {
-        $I->see('Create a new account', 'h1');
-        $I->see('Fill out the fields below to get started');
+        $I->see('Criar conta', 'h1');
+        $I->see('Preencha os campos para começar.');
         $I->submitForm($this->formId, []);
-        $I->seeValidationError('Username cannot be blank.');
-        $I->seeValidationError('Email cannot be blank.');
-        $I->seeValidationError('Password cannot be blank.');
+        $I->seeValidationError('“Nome de utilizador” não pode ficar em branco.');
+        $I->seeValidationError('“E-mail” não pode ficar em branco.');
+        $I->seeValidationError('“Palavra-passe” não pode ficar em branco.');
     }
 
     public function signupWithWrongEmail(FunctionalTester $I): void
@@ -35,9 +35,9 @@ final class SignupCest
                 'SignupForm[password]' => 'tester_password',
             ]
         );
-        $I->dontSee('Username cannot be blank.', '.invalid-feedback');
-        $I->dontSee('Password cannot be blank.', '.invalid-feedback');
-        $I->see('Email is not a valid email address.', '.invalid-feedback');
+        $I->dontSee('“Nome de utilizador” não pode ficar em branco.', '.invalid-feedback');
+        $I->dontSee('“Palavra-passe” não pode ficar em branco.', '.invalid-feedback');
+        $I->see('“E-mail” não é um endereço de e-mail válido.', '.invalid-feedback');
     }
 
     public function signupSuccessfully(FunctionalTester $I): void
@@ -56,11 +56,10 @@ final class SignupCest
             [
                 'username' => 'tester',
                 'email' => 'tester.email@example.com',
-                'status' => User::STATUS_INACTIVE,
+                'status' => User::STATUS_ACTIVE,
             ],
         );
 
-        $I->seeEmailIsSent();
-        $I->see('Thank you for registration. Please check your inbox for verification email.');
+        $I->see('Registo concluído. Já pode iniciar sessão.');
     }
 }

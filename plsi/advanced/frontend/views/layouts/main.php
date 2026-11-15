@@ -15,7 +15,7 @@ $this->render('_head');
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <?php $this->head() ?>
-    <title><?= Html::encode($this->title ?: 'Acuas - Drinking Water Website') ?></title>
+    <title><?= Html::encode($this->title ?: 'Watertrack | Contagem de Água') ?></title>
 </head>
 <body class="<?= Yii::$app->controller->route === 'site/index' ? 'home-page' : 'inner-page' ?>">
 <?php $this->beginBody() ?>

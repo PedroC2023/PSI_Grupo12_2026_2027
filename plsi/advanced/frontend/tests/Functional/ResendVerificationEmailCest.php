@@ -35,32 +35,32 @@ final class ResendVerificationEmailCest
 
     public function checkPage(FunctionalTester $I): void
     {
-        $I->see('Resend verification email', 'h1');
-        $I->see('Enter your email to receive a new verification link');
+        $I->see('Reenviar e-mail de verificação', 'h1');
+        $I->see('Indique o seu e-mail para receber uma nova ligação de verificação.');
     }
 
     public function checkEmptyField(FunctionalTester $I): void
     {
         $I->submitForm($this->formId, $this->formParams(''));
-        $I->seeValidationError('Email cannot be blank.');
+        $I->seeValidationError('“E-mail” não pode ficar em branco.');
     }
 
     public function checkWrongEmailFormat(FunctionalTester $I): void
     {
         $I->submitForm($this->formId, $this->formParams('abcd.com'));
-        $I->seeValidationError('Email is not a valid email address.');
+        $I->seeValidationError('“E-mail” não é um endereço de e-mail válido.');
     }
 
     public function checkWrongEmail(FunctionalTester $I): void
     {
         $I->submitForm($this->formId, $this->formParams('wrong@email.com'));
-        $I->seeValidationError('There is no user with this email address.');
+        $I->seeValidationError('Não existe uma conta com este endereço de e-mail.');
     }
 
     public function checkAlreadyVerifiedEmail(FunctionalTester $I): void
     {
         $I->submitForm($this->formId, $this->formParams('test2@mail.com'));
-        $I->seeValidationError('There is no user with this email address.');
+        $I->seeValidationError('Não existe uma conta com este endereço de e-mail.');
     }
 
     public function checkSendSuccessfully(FunctionalTester $I): void
@@ -75,6 +75,6 @@ final class ResendVerificationEmailCest
                 'status' => User::STATUS_INACTIVE,
             ],
         );
-        $I->see('Check your email for further instructions.');
+        $I->see('Consulte o seu e-mail para obter mais instruções.');
     }
 }

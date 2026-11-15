@@ -4,34 +4,29 @@
 /* @var $content string */
 
 \hail812\adminlte3\assets\AdminLteAsset::register($this);
-$this->registerCssFile('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700');
-$this->registerCssFile('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
-\hail812\adminlte3\assets\PluginAsset::register($this)->add(['fontawesome', 'icheck-bootstrap']);
+\hail812\adminlte3\assets\FontAwesomeAsset::register($this);
+$this->registerCssFile('@web/css/site.css', ['depends' => \hail812\adminlte3\assets\AdminLteAsset::class]);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html>
+<html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
+    <title><?= \yii\helpers\Html::encode($this->title ?: 'Acesso ao back-office') ?></title>
     <?php $this->head() ?>
 </head>
-<body class="hold-transition login-page">
-<?php  $this->beginBody() ?>
-<div class="login-box">
-    <div class="login-logo">
-        <a href="<?=Yii::$app->homeUrl?>"><b>Admin</b>LTE</a>
+<body class="hold-transition login-page backend-login-page">
+<?php $this->beginBody() ?>
+<main class="backend-login-shell">
+    <div class="backend-login-brand">
+        <span class="brand-mark" aria-hidden="true"><i class="fas fa-layer-group"></i></span>
+        <span>Gestão <strong>Back-office</strong></span>
     </div>
-    <!-- /.login-logo -->
-
     <?= $content ?>
-</div>
-<!-- /.login-box -->
-
+    <p class="backend-login-caption">Acesso reservado a utilizadores autorizados.</p>
+</main>
 <?php $this->endBody() ?>
 </body>
 </html>

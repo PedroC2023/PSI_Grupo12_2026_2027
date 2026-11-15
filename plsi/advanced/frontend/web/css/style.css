@@ -512,6 +512,7 @@
 }
 
 .service-item .service-content a,
+.service-item .service-content h3,
 .service-item .service-content p {
     transition: 0.5s;
 }
@@ -522,7 +523,11 @@
 
 .service-item:hover .service-content p {
     color: var(--bs-white);
-} 
+}
+
+.service-item:hover .service-content h3 {
+    color: var(--bs-white);
+}
 
 .service-item .service-btn {
     width: 80px;
@@ -689,7 +694,6 @@ body.inner-page .navbar-light .navbar-nav .nav-link:hover,
 body.inner-page .navbar-light .navbar-nav .nav-link.active {
     color: #00d1f9 !important;
 }
-
 
 
 

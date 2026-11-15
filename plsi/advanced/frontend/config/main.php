@@ -11,6 +11,8 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'Watertrack',
+    'language' => 'pt-PT',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',

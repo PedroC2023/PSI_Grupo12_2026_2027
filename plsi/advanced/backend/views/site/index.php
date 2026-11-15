@@ -1,131 +1,53 @@
 <?php
-$this->title = 'Starter Page';
+
+use yii\helpers\Html;
+
+$this->title = 'Visão geral';
 $this->params['breadcrumbs'] = [['label' => $this->title]];
 ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6">
-            <?= \hail812\adminlte\widgets\Alert::widget([
-                'type' => 'success',
-                'body' => '<h3>Congratulations!</h3>',
-            ]) ?>
-             
-            
+<div class="backend-dashboard">
+    <section class="dashboard-welcome">
+        <div>
+            <span class="dashboard-eyebrow">PAINEL DE GESTÃO</span>
+            <h2>Bem-vindo, <?= Html::encode(Yii::$app->user->identity->username) ?></h2>
+            <p>Utilize o menu lateral para navegar pelas ferramentas disponíveis.</p>
         </div>
-    </div>
+        <div class="dashboard-welcome-icon" aria-hidden="true">
+            <i class="fas fa-layer-group"></i>
+        </div>
+    </section>
 
-    <div class="row">
-        <div class="col-12 col-sm-6 col-md-3">
-            <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'CPU Traffic',
-                'number' => '10 <small>%</small>',
-                'icon' => 'fas fa-cog',
-            ]) ?>
+    <section class="dashboard-section">
+        <div class="dashboard-section-heading">
+            <div>
+                <h3>Acesso rápido</h3>
+                <p>Escolha uma área para continuar.</p>
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-4 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Messages',
-                'number' => '1,410',
-                'icon' => 'far fa-envelope',
-            ]) ?>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Bookmarks',
-                'number' => '410',
-                 'theme' => 'success',
-                'icon' => 'far fa-flag',
-            ]) ?>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Uploads',
-                'number' => '13,648',
-                'theme' => 'gradient-warning',
-                'icon' => 'far fa-copy',
-            ]) ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Bookmarks',
-                'number' => '41,410',
-                'icon' => 'far fa-bookmark',
-                'progress' => [
-                    'width' => '70%',
-                    'description' => '70% Increase in 30 Days'
-                ]
-            ]) ?>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12">
-            <?php $infoBox = \hail812\adminlte\widgets\InfoBox::begin([
-                'text' => 'Likes',
-                'number' => '41,410',
-                'theme' => 'success',
-                'icon' => 'far fa-thumbs-up',
-                'progress' => [
-                    'width' => '70%',
-                    'description' => '70% Increase in 30 Days'
-                ]
-            ]) ?>
-            <?= \hail812\adminlte\widgets\Ribbon::widget([
-                'id' => $infoBox->id.'-ribbon',
-                'text' => 'Ribbon',
-            ]) ?>
-            <?php \hail812\adminlte\widgets\InfoBox::end() ?>
-        </div>
-        <div class="col-md-4 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\InfoBox::widget([
-                'text' => 'Events',
-                'number' => '41,410',
-                'theme' => 'gradient-warning',
-                'icon' => 'far fa-calendar-alt',
-                'progress' => [
-                    'width' => '70%',
-                    'description' => '70% Increase in 30 Days'
-                ],
-                'loadingStyle' => true
-            ]) ?>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\SmallBox::widget([
-                'title' => '150',
-                'text' => 'New Orders',
-                'icon' => 'fas fa-shopping-cart',
-            ]) ?>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <?php $smallBox = \hail812\adminlte\widgets\SmallBox::begin([
-                'title' => '150',
-                'text' => 'New Orders',
-                'icon' => 'fas fa-shopping-cart',
-                'theme' => 'success'
-            ]) ?>
-            <?= \hail812\adminlte\widgets\Ribbon::widget([
-                'id' => $smallBox->id.'-ribbon',
-                'text' => 'Ribbon',
-                'theme' => 'warning',
-                'size' => 'lg',
-                'textSize' => 'lg'
-            ]) ?>
-            <?php \hail812\adminlte\widgets\SmallBox::end() ?>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-            <?= \hail812\adminlte\widgets\SmallBox::widget([
-                'title' => '44',
-                'text' => 'User Registrations',
-                'icon' => 'fas fa-user-plus',
-                'theme' => 'gradient-success',
-                'loadingStyle' => true
-            ]) ?>
-        </div>
-    </div>
+        <?php if (Yii::$app->user->can('gerirRoles')): ?>
+            <article class="dashboard-action-card">
+                <div class="dashboard-action-icon"><i class="fas fa-users" aria-hidden="true"></i></div>
+                <div class="dashboard-action-copy">
+                    <h4>Gestão de utilizadores</h4>
+                    <p>Consulte contas, atualize permissões ou crie um novo utilizador.</p>
+                </div>
+                <div class="dashboard-action-links">
+                    <?= Html::a('Ver utilizadores <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>', ['/user/index'], [
+                        'class' => 'btn dashboard-primary-button',
+                        'encode' => false,
+                    ]) ?>
+                    <?= Html::a('Novo utilizador', ['/user/create'], ['class' => 'btn dashboard-secondary-button']) ?>
+                </div>
+            </article>
+        <?php else: ?>
+            <article class="dashboard-action-card">
+                <div class="dashboard-action-icon"><i class="fas fa-compass" aria-hidden="true"></i></div>
+                <div class="dashboard-action-copy">
+                    <h4>Área de administração</h4>
+                    <p>As opções disponíveis para a sua conta encontram-se no menu lateral.</p>
+                </div>
+            </article>
+        <?php endif; ?>
+    </section>
 </div>

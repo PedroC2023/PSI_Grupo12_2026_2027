@@ -37,7 +37,7 @@ final class ResendVerificationEmailFormTest extends Unit
         verify($model->hasErrors())
             ->true();
         verify($model->getFirstError('email'))
-            ->equals('There is no user with this email address.');
+            ->equals('Não existe uma conta com este endereço de e-mail.');
     }
 
     public function testEmptyEmailAddress(): void
@@ -51,7 +51,7 @@ final class ResendVerificationEmailFormTest extends Unit
         verify($model->hasErrors())
             ->true();
         verify($model->getFirstError('email'))
-            ->equals('Email cannot be blank.');
+            ->equals('“E-mail” não pode ficar em branco.');
     }
 
     public function testResendToActiveUser(): void
@@ -65,7 +65,7 @@ final class ResendVerificationEmailFormTest extends Unit
         verify($model->hasErrors())
             ->true();
         verify($model->getFirstError('email'))
-            ->equals('There is no user with this email address.');
+            ->equals('Não existe uma conta com este endereço de e-mail.');
     }
 
     public function testSuccessfullyResend(): void
@@ -90,7 +90,7 @@ final class ResendVerificationEmailFormTest extends Unit
         verify($mail->getFrom())
             ->arrayHasKey(Yii::$app->params['supportEmail']);
         verify($mail->getSubject())
-            ->equals('Account registration at ' . Yii::$app->name);
+            ->equals('Confirmação da conta — ' . Yii::$app->name);
         verify($mail->toString())
             ->stringContainsString('4ch0qbfhvWwkcuWqjN8SWRq72SOw1KYT_1548675330');
     }

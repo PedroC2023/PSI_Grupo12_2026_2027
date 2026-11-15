@@ -9,10 +9,10 @@ declare(strict_types=1);
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 
-$this->title = 'Set your new password';
+$this->title = 'Definir nova palavra-passe';
 $this->params['breadcrumbs'][] = $this->title;
-$this->params['meta_description'] = 'Set a new password for your account.';
-$this->params['meta_keywords'] = 'yii, yii2, reset password, new password, security';
+$this->params['meta_description'] = 'Defina uma nova palavra-passe para a sua conta Watertrack.';
+$this->params['meta_keywords'] = 'Watertrack, nova palavra-passe, segurança';
 $htmlIcon = <<<HTML
 {label}<div class="input-group"><span class="input-group-text" aria-hidden="true">%s</span>{input}</div>{error}{hint}
 HTML;
@@ -25,22 +25,13 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
             <!-- Brand panel -->
             <div class="col-md-5 d-none d-md-flex login-brand-panel text-white">
                 <div class="d-flex flex-column justify-content-between p-4 p-lg-5 w-100">
-                    <div>
-                        <?= Html::img(
-                            Yii::getAlias('@web/images/yii3_full_white_for_dark.svg'),
-                            [
-                                'alt' => 'Yii Framework',
-                                'class' => 'mb-4',
-                                'height' => 40,
-                            ],
-                        ) ?>
-                    </div>
+                    <h2 class="h3 text-white"><i class="fas fa-hand-holding-water text-primary me-2"></i>Watertrack</h2>
                     <div>
                         <h2 class="fw-bold mb-3 login-brand-title">
-                            New<br>Password
+                            Nova<br>palavra-passe
                         </h2>
                         <p class="opacity-75 mb-0 login-brand-text">
-                            Choose a strong password to keep your account secure.
+                            Escolha uma palavra-passe segura para proteger a sua conta.
                         </p>
                     </div>
                 </div>
@@ -50,18 +41,9 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
             <div class="col-md-7">
                 <div class="p-4 p-lg-5">
                     <div class="text-center mb-4">
-                        <div class="d-md-none mb-3">
-                            <?= Html::img(
-                                Yii::getAlias('@web/images/yii3_full_black_for_light.svg'),
-                                [
-                                    'alt' => 'Yii Framework',
-                                    'class' => 'login-mobile-logo',
-                                    'height' => 36,
-                                ],
-                            ) ?>
-                        </div>
+                        <div class="d-md-none mb-3"><span class="h4 text-primary"><i class="fas fa-hand-holding-water me-2"></i>Watertrack</span></div>
                         <h1 class="h3 fw-bold mb-1"><?= Html::encode($this->title) ?></h1>
-                        <p class="text-body-secondary small">Please choose a new password for your account</p>
+                        <p class="text-body-secondary small">Escolha uma nova palavra-passe para a sua conta.</p>
                     </div>
 
                     <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
@@ -73,14 +55,14 @@ $labelOptions = ['class' => 'form-label fw-semibold small'];
                             'inputOptions' => [
                                 'autofocus' => true,
                                 'class' => 'form-control',
-                                'placeholder' => 'Password',
+                                'placeholder' => 'Palavra-passe',
                             ],
-                        ])->passwordInput()->label('New Password', $labelOptions) ?>
+                        ])->passwordInput()->label('Nova palavra-passe', $labelOptions) ?>
                     </div>
 
                     <div class="d-grid">
                         <?= Html::submitButton(
-                            'Save',
+                            'Guardar',
                             [
                                 'class' => 'btn login-btn btn-lg rounded-3 text-white',
                             ],
