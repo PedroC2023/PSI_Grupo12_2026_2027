@@ -179,13 +179,7 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
 
-        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Registo concluído. Já pode iniciar sessão.');
-
-            return $this->goHome();
-        }
-
-        /*
+      
         $signed = $model->load(Yii::$app->request->post()) && $model->signup(
             $this->mailer,
             Yii::$app->params['supportEmail'],
@@ -196,7 +190,7 @@ class SiteController extends Controller
             Yii::$app->session->setFlash('success', 'Obrigado pelo registo. Consulte o seu e-mail para confirmar a conta.');
             
             return $this->goHome();
-        }*/
+        }
 
         return $this->render('signup', [
             'model' => $model,
