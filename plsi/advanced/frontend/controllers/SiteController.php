@@ -147,9 +147,9 @@ class SiteController extends Controller
             );
 
             if ($sent) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+                Yii::$app->session->setFlash('success', 'Obrigado por nos contactar. Responderemos assim que possível.');
             } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending your message.');
+                Yii::$app->session->setFlash('error', 'Ocorreu um erro ao enviar a sua mensagem.');
             }
 
             return $this->refresh();
@@ -193,7 +193,7 @@ class SiteController extends Controller
         );
 
         if ($signed) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
+            Yii::$app->session->setFlash('success', 'Obrigado pelo registo. Consulte o seu e-mail para confirmar a conta.');
             
             return $this->goHome();
         }*/
@@ -220,12 +220,12 @@ class SiteController extends Controller
             );
 
             if ($sent) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', 'Consulte o seu e-mail para obter mais instruções.');
 
                 return $this->goHome();
             }
 
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
+            Yii::$app->session->setFlash('error', 'Não foi possível recuperar a palavra-passe para o e-mail indicado.');
         }
 
         return $this->render('requestPasswordResetToken', [
@@ -249,7 +249,7 @@ class SiteController extends Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password saved.');
+            Yii::$app->session->setFlash('success', 'A nova palavra-passe foi guardada.');
 
             return $this->goHome();
         }
@@ -275,11 +275,11 @@ class SiteController extends Controller
         }
 
         if ($model->verifyEmail()) {
-            Yii::$app->session->setFlash('success', 'Your email has been confirmed!');
+            Yii::$app->session->setFlash('success', 'O seu e-mail foi confirmado.');
             return $this->goHome();
         }
 
-        Yii::$app->session->setFlash('error', 'Sorry, we are unable to verify your account with provided token.');
+        Yii::$app->session->setFlash('error', 'Não foi possível confirmar a conta com o código fornecido.');
         return $this->goHome();
     }
 
@@ -300,11 +300,11 @@ class SiteController extends Controller
             );
 
             if ($sent) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->session->setFlash('success', 'Consulte o seu e-mail para obter mais instruções.');
                 return $this->goHome();
             }
 
-            Yii::$app->session->setFlash('error', 'Sorry, we are unable to resend verification email for the provided email address.');
+            Yii::$app->session->setFlash('error', 'Não foi possível reenviar o e-mail de verificação para o endereço indicado.');
         }
 
         return $this->render('resendVerificationEmail', [

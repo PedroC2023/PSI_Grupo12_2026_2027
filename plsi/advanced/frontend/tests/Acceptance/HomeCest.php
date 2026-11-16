@@ -11,11 +11,11 @@ final class HomeCest
     public function checkHome(AcceptanceTester $I): void
     {
         $I->amOnPage('/');
-        $I->see('My Application');
+        $I->see('Watertrack');
 
-        $I->seeLink('About');
-        $I->click('About');
+        $I->seeLink('A empresa');
+        $I->click('A empresa');
 
-        $I->see('This is the About page.');
+        $I->see('Ajudamos a cuidar de cada gota.');
     }
 }

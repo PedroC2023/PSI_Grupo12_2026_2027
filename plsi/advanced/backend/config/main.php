@@ -38,14 +38,30 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
+
+    // Proteção global do back-office: exige a permissão 'acederBackOffice'
+    'as beforeRequest' => [
+        'class' => \yii\filters\AccessControl::class,
+        'rules' => [
+            [
+                // Permite o acesso à página de login e de erro para visitantes não autenticados
+                'actions' => ['login', 'error', 'logout'],
+                'allow' => true,
+            ],
+            [
+                // Bloqueia qualquer outra rota a quem não tiver a permissão 'acederBackOffice'
+                'allow' => true,
+                'roles' => ['acederBackOffice'],
+            ],
+        ],
+    ],
+
     'params' => $params,
 ];

@@ -4,206 +4,175 @@ declare(strict_types=1);
 
 /** @var yii\web\View $this */
 
-use yii\helpers\Html;
+use yii\helpers\Url;
 
-$this->title = 'My Yii Application';
-$this->params['meta_description'] = 'A high-performance PHP framework best for developing web applications. Fast, secure, and professional.';
-$this->params['meta_keywords'] = 'yii, yii2, php, framework, web application, high-performance';
+$this->title = 'Watertrack | Leituras de Contadores de Água';
+$this->params['meta_description'] = 'Leituras de contadores de água rigorosas, serviços de apoio e gestão de consumos para casas e empresas.';
+$this->params['meta_keywords'] = 'leitura de contadores, água, consumo, Watertrack, gestão de água';
 ?>
 <div class="site-index">
-
-    <!-- Hero banner with Yii gradient -->
-    <div class="hero-banner text-white rounded-4 p-5 mb-4 position-relative overflow-hidden">
-        <?= Html::img(Yii::getAlias('@web/images/yii3_full_white_for_dark.svg'), [
-            'alt' => '',
-            'class' => 'd-none d-lg-block position-absolute hero-logo',
-        ]) ?>
-        <div class="position-relative">
-            <h1 class="display-5 fw-bold mb-3">Build with Yii Framework</h1>
-            <p class="lead opacity-75 mb-4 hero-lead">
-                A high-performance PHP framework best for developing web applications.
-                Fast, secure, and professional.
-            </p>
-            <div class="d-flex gap-2 flex-wrap">
-                <?= Html::a(
-                    'Get Started',
-                    'https://www.yiiframework.com/doc/guide/2.0/en/start-installation',
-                    [
-                        'class' => 'btn btn-light btn-lg fw-semibold px-4',
-                        'rel' => 'noopener',
-                        'target' => '_blank',
-                    ],
-                ) ?>
-                <?= Html::a(
-                    'API Reference',
-                    'https://www.yiiframework.com/doc/api/2.0',
-                    [
-                        'class' => 'btn btn-outline-light btn-lg px-4',
-                        'rel' => 'noopener',
-                        'target' => '_blank',
-                    ],
-                ) ?>
+    <div class="carousel-header">
+        <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="<?= Yii::getAlias('@web') ?>/images/carousel-1.jpg" class="img-fluid w-100" alt="Água a correr numa torneira">
+                    <div class="carousel-caption-1">
+                        <div class="carousel-caption-1-content" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase fw-bold mb-4 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1s" style="animation-delay: 1s; letter-spacing: 3px;">Watertrack — Contagem de Água</h4>
+                            <h1 class="display-2 text-capitalize text-white mb-4 fadeInLeft animated" data-animation="fadeInLeft" data-delay="1.3s" style="animation-delay: 1.3s;">Cada gota conta. Cada leitura também.</h1>
+                            <p class="mb-5 fs-5 text-white fadeInLeft animated" data-animation="fadeInLeft" data-delay="1.5s" style="animation-delay: 1.5s;">Ajudamos famílias, condomínios e empresas a acompanhar o consumo de água com leituras fiáveis e um serviço próximo.</p>
+                            <div class="carousel-caption-1-content-btn fadeInLeft animated" data-animation="fadeInLeft" data-delay="1.7s" style="animation-delay: 1.7s;">
+                                <a class="btn btn-primary rounded-pill flex-shrink-0 py-3 px-5 me-2" href="<?= Url::to(['/site/contact']) ?>">Peça informações</a>
+                                <a class="btn btn-secondary rounded-pill flex-shrink-0 py-3 px-5 ms-2" href="#servicos">Conheça os serviços</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="<?= Yii::getAlias('@web') ?>/images/carousel-2.jpg" class="img-fluid w-100" alt="Água limpa e transparente">
+                    <div class="carousel-caption-2">
+                        <div class="carousel-caption-2-content" style="max-width: 900px;">
+                            <h4 class="text-white text-uppercase fw-bold mb-4 fadeInRight animated" data-animation="fadeInRight" data-delay="1s" style="animation-delay: 1s; letter-spacing: 3px;">Precisão e transparência</h4>
+                            <h1 class="display-2 text-capitalize text-white mb-4 fadeInRight animated" data-animation="fadeInRight" data-delay="1.3s" style="animation-delay: 1.3s;">Mais controlo sobre o seu consumo.</h1>
+                            <p class="mb-5 fs-5 text-white fadeInRight animated" data-animation="fadeInRight" data-delay="1.5s" style="animation-delay: 1.5s;">Registamos as leituras e ajudamos a identificar variações para que possa tomar decisões informadas.</p>
+                            <div class="carousel-caption-2-content-btn fadeInRight animated" data-animation="fadeInRight" data-delay="1.7s" style="animation-delay: 1.7s;">
+                                <a class="btn btn-primary rounded-pill flex-shrink-0 py-3 px-5 me-2" href="<?= Url::to(['/site/signup']) ?>">Criar conta</a>
+                                <a class="btn btn-secondary rounded-pill flex-shrink-0 py-3 px-5 ms-2" href="<?= Url::to(['/site/login']) ?>">Área de cliente</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev" aria-label="Apresentação anterior">
+                <span class="carousel-control-prev-icon btn btn-primary fadeInLeft animated" aria-hidden="true"><i class="fa fa-angle-left fa-3x"></i></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next" aria-label="Apresentação seguinte">
+                <span class="carousel-control-next-icon btn btn-primary fadeInRight animated" aria-hidden="true"><i class="fa fa-angle-right fa-3x"></i></span>
+                <span class="visually-hidden">Seguinte</span>
+            </button>
         </div>
     </div>
 
-    <!-- Extensions grid -->
-    <div class="row g-3">
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon">&#128270;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-debug</h3>
+    <section id="empresa" class="container-fluid about overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="about-img rounded h-100">
+                        <img src="<?= Yii::getAlias('@web') ?>/images/about.jpg" class="img-fluid rounded h-100 w-100" style="object-fit: cover;" alt="Profissional a verificar um contador de água">
+                        <div class="about-exp"><span>Leituras de confiança</span></div>
                     </div>
-                    <p class="text-body-secondary small mb-0">
-                        Debug toolbar and debugger for Yii2. Inspect logs, database queries,
-                        request data, and application performance in real time.
-                    </p>
                 </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-debug',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
+                <div class="col-xl-6 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="about-item">
+                        <h2 class="h4 text-primary text-uppercase">A empresa</h2>
+                        <h2 class="display-3 mb-3">Água bem gerida começa com uma boa leitura.</h2>
+                        <p class="mb-4">Na Watertrack, tratamos cada leitura com rigor e atenção. Trabalhamos com clientes particulares, condomínios e organizações para tornar a contagem e o acompanhamento do consumo mais simples.</p>
+                        <div class="bg-light rounded p-4 mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="pe-4">
+                                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;"><i class="fas fa-tint text-white fa-2x"></i></div>
+                                </div>
+                                <div>
+                                    <h3 class="h4 mb-2">Leituras rigorosas</h3>
+                                    <p class="mb-0">Registos claros e organizados para acompanhar a evolução dos consumos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light rounded p-4 mb-4">
+                            <div class="d-flex align-items-center">
+                                <div class="pe-4">
+                                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" style="width: 80px; height: 80px;"><i class="fas fa-handshake text-white fa-2x"></i></div>
+                                </div>
+                                <div>
+                                    <h3 class="h4 mb-2">Acompanhamento próximo</h3>
+                                    <p class="mb-0">Uma equipa disponível para esclarecer dúvidas sobre leituras e consumos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="<?= Url::to(['/site/about']) ?>" class="btn btn-secondary rounded-pill py-3 px-5">Saiba mais sobre nós</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon">&#9881;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-gii</h3>
+    <section id="servicos" class="container-fluid service bg-light overflow-hidden py-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h2 class="h4 text-uppercase text-primary">Os nossos serviços</h2>
+                <h2 class="display-3 text-capitalize mb-3">Soluções de contagem para cada necessidade.</h2>
+            </div>
+            <div class="row gx-0 gy-4 align-items-center">
+                <div class="col-lg-6 col-xl-4 wow fadeInLeft" data-wow-delay="0.2s">
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="d-flex">
+                            <div class="service-content text-end">
+                                <h3 class="h4 mb-3">Leitura de contadores</h3>
+                                <p class="mb-0">Recolha e registo periódico das leituras em habitações e espaços comerciais.</p>
+                            </div>
+                            <div class="ps-4"><div class="service-btn"><i class="fas fa-tachometer-alt text-white fa-2x"></i></div></div>
+                        </div>
                     </div>
-                    <p class="text-body-secondary small mb-0">
-                        Automatic code generator for models, controllers, CRUD, forms, and modules.
-                        Boost your productivity with scaffolding.
-                    </p>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="d-flex">
+                            <div class="service-content text-end">
+                                <h3 class="h4 mb-3">Gestão de condomínios</h3>
+                                <p class="mb-0">Organização das leituras por fração e apoio à gestão do consumo comum.</p>
+                            </div>
+                            <div class="ps-4"><div class="service-btn"><i class="fas fa-building text-white fa-2x"></i></div></div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="d-flex">
+                            <div class="service-content text-end">
+                                <h3 class="h4 mb-3">Controlo de consumos</h3>
+                                <p class="mb-0">Acompanhamento das variações para ajudar a detetar consumos fora do habitual.</p>
+                            </div>
+                            <div class="ps-4"><div class="service-btn"><i class="fas fa-chart-line text-white fa-2x"></i></div></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-gii',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ],
-                    ) ?>
+                <div class="col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <img src="<?= Yii::getAlias('@web') ?>/images/water.png" class="img-fluid w-100" alt="Ilustração de uma gota de água">
+                </div>
+                <div class="col-lg-6 col-xl-4 wow fadeInRight" data-wow-delay="0.2s">
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="d-flex">
+                            <div class="pe-4"><div class="service-btn"><i class="fas fa-file-alt text-white fa-2x"></i></div></div>
+                            <div class="service-content">
+                                <h3 class="h4 mb-3">Relatórios de leitura</h3>
+                                <p class="mb-0">Informação organizada para acompanhar os registos e comparar períodos.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="d-flex">
+                            <div class="pe-4"><div class="service-btn"><i class="fas fa-tools text-white fa-2x"></i></div></div>
+                            <div class="service-content">
+                                <h3 class="h4 mb-3">Verificação no local</h3>
+                                <p class="mb-0">Confirmação da identificação e do estado visível dos contadores.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item rounded p-4 mb-4">
+                        <div class="d-flex">
+                            <div class="pe-4"><div class="service-btn"><i class="fas fa-headset text-white fa-2x"></i></div></div>
+                            <div class="service-content">
+                                <h3 class="h4 mb-3">Apoio ao cliente</h3>
+                                <p class="mb-0">Esclarecimento de questões sobre leituras e acompanhamento de consumos.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon">&#128203;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-queue</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Asynchronous job queue with support for DB, Redis, AMQP, Beanstalk,
-                        and SQS drivers. Run background tasks with ease.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-queue',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ]
-                    ) ?>
-                </div>
+            <div class="text-center mt-4">
+                <a href="<?= Url::to(['/site/contact']) ?>" class="btn btn-primary rounded-pill py-3 px-5">Fale connosco</a>
             </div>
         </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon">&#9889;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-redis</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Redis integration providing cache, session, and ActiveRecord support.
-                        Leverage in-memory storage for blazing-fast data access.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-redis',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ]
-                    ) ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon">&#128269;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-elasticsearch</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Elasticsearch integration with ActiveRecord and query builder.
-                        Add powerful full-text search capabilities to your application.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://www.yiiframework.com/extension/yiisoft/yii2-elasticsearch',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ]
-                    ) ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm rounded-3 extension-card">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-3">
-                        <span class="extension-icon">&#9993;</span>
-                        <h3 class="h6 fw-bold mb-0 ms-2">yii2-symfonymailer</h3>
-                    </div>
-                    <p class="text-body-secondary small mb-0">
-                        Email sending integration powered by Symfony Mailer.
-                        Compose and deliver rich HTML emails with attachments and templates.
-                    </p>
-                </div>
-                <div class="card-footer bg-transparent border-0 pt-0">
-                    <?= Html::a(
-                        'Learn more &raquo;',
-                        'https://github.com/yiisoft/yii2-symfonymailer',
-                        [
-                            'class' => 'btn btn-sm btn-outline-secondary',
-                            'rel' => 'noopener',
-                            'target' => '_blank',
-                        ]
-                    ) ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </section>
 </div>

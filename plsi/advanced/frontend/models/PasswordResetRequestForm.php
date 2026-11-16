@@ -26,9 +26,17 @@ class PasswordResetRequestForm extends Model
             ['email', 'exist',
                 'targetClass' => User::class,
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => 'There is no user with this email address.',
+                'message' => 'Não existe uma conta ativa com este endereço de e-mail.',
             ],
         ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels(): array
+    {
+        return ['email' => 'E-mail'];
     }
 
     /**
@@ -63,9 +71,9 @@ class PasswordResetRequestForm extends Model
                 ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
                 ['user' => $user],
             )
-            ->setFrom([$supportEmail => $appName . ' robot'])
+            ->setFrom([$supportEmail => 'Equipa ' . $appName])
             ->setTo($this->email)
-            ->setSubject('Password reset for ' . $appName)
+            ->setSubject('Recuperação da palavra-passe — ' . $appName)
             ->send();
     }
 }

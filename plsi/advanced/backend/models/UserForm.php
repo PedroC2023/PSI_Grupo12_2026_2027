@@ -18,6 +18,16 @@ class UserForm extends Model
 
     private $_user;
 
+    public function scenarios(): array
+    {
+        $attributes = ['username', 'email', 'password', 'status', 'role'];
+
+        return [
+            self::SCENARIO_CREATE => $attributes,
+            self::SCENARIO_UPDATE => $attributes,
+        ];
+    }
+
     public static function fromUser(User $user): self
     {
         $form = new self(['scenario' => self::SCENARIO_UPDATE]);

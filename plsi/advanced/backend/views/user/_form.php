@@ -1,7 +1,6 @@
 <?php
 use common\models\User;
 use yii\bootstrap5\ActiveForm;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /** @var backend\models\UserForm $model */
@@ -20,8 +19,8 @@ $roles = array_keys(Yii::$app->authManager->getRoles());
 <?= $form->field($model, 'role')->dropDownList(array_combine($roles, array_map('ucfirst', $roles)), ['prompt' => 'Selecione...']) ?>
 
 <div class="mt-3">
-    <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
-    <?= Html::a('Cancelar', ['index'], ['class' => 'btn btn-secondary']) ?>
+    <?= Html::submitButton('Guardar alterações', ['class' => 'btn dashboard-primary-button']) ?>
+    <?= Html::a('Cancelar', ['index'], ['class' => 'btn dashboard-secondary-button']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>

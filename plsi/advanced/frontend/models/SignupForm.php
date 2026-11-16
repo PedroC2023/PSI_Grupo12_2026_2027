@@ -25,17 +25,29 @@ class SignupForm extends Model
         return [
             ['username', 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => User::class, 'message' => 'This username has already been taken.'],
+            ['username', 'unique', 'targetClass' => User::class, 'message' => 'Este nome de utilizador já está a ser utilizado.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => User::class, 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => User::class, 'message' => 'Este endereço de e-mail já está registado.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels(): array
+    {
+        return [
+            'username' => 'Nome de utilizador',
+            'email' => 'E-mail',
+            'password' => 'Palavra-passe',
         ];
     }
 
@@ -76,9 +88,9 @@ class SignupForm extends Model
 
         // Atribuir o role por defeito a quem se regista no front-office
         $auth = Yii::$app->authManager;
-        $role = $auth->getRole('empresa');
+        $role = $auth->getRole('cliente');
         if ($role === null) {
-            throw new \RuntimeException("O role 'empresa' não existe.");
+            throw new \RuntimeException("O role 'cliente' não existe.");
         }
         $auth->assign($role, $user->getId());
 
@@ -109,9 +121,9 @@ class SignupForm extends Model
                 ['html' => 'emailVerify-html', 'text' => 'emailVerify-text'],
                 ['user' => $user],
             )
-            ->setFrom([$supportEmail => $appName . ' robot'])
+            ->setFrom([$supportEmail => 'Equipa ' . $appName])
             ->setTo($this->email)
-            ->setSubject('Account registration at ' . $appName)
+            ->setSubject('Confirmação da conta — ' . $appName)
             ->send();
     }
 }
