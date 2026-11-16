@@ -56,10 +56,10 @@ final class SignupCest
             [
                 'username' => 'tester',
                 'email' => 'tester.email@example.com',
-                'status' => User::STATUS_ACTIVE,
+                'status' => User::STATUS_INACTIVE,
             ],
         );
 
-        $I->see('Registo concluído. Já pode iniciar sessão.');
+        $I->see('Obrigado pelo registo. Consulte o seu e-mail para confirmar a conta.', '.alert-success');
     }
 }

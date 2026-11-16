@@ -60,8 +60,7 @@ class SignupForm extends Model
      *
      * @return bool|null whether the creating new account was successful and email was sent.
      */
-    //public function signup(MailerInterface $mailer, string $supportEmail, string $appName): bool|null
-    public function signup(): bool|null
+    public function signup(MailerInterface $mailer, string $supportEmail, string $appName): bool|null
     {
         if (!$this->validate()) {
             return null;
@@ -76,8 +75,7 @@ class SignupForm extends Model
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
 
-        $user->status = User::STATUS_ACTIVE; // 10,  Verificação de user
-
+        $user->status = User::STATUS_INACTIVE;
         $transaction = Yii::$app->db->beginTransaction();
 
         try {
@@ -100,8 +98,7 @@ class SignupForm extends Model
         throw $e;
         }
 
-        return true;
-        // return $this->sendEmail($mailer, $user, $supportEmail, $appName);
+       return $this->sendEmail($mailer, $user, $supportEmail, $appName);
     }
 
     /**
